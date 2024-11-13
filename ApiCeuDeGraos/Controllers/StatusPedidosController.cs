@@ -16,11 +16,13 @@ namespace ApiCeuDeGraos.Controllers
             _context = context;
         }
 
+        // Endpoint para obter todos os status de pedidos
         [HttpGet]
         public async Task<ActionResult<IEnumerable<StatusPedido>>> GetStatusPedidos()
         {
             return await _context.StatusPedidos.ToListAsync();
         }
     }
+
 
 }

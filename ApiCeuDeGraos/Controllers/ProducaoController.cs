@@ -16,12 +16,14 @@ namespace ApiCeuDeGraos.Controllers
             _context = context;
         }
 
+        // Endpoint para obter todas as produções
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Producao>>> GetProducoes()
         {
             return await _context.Producoes.Include(p => p.Produto).ToListAsync();
         }
 
+        // Endpoint para adicionar uma nova produção
         [HttpPost]
         public async Task<ActionResult<Producao>> AdicionarProducao(Producao producao)
         {

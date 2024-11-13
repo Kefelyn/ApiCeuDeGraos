@@ -16,12 +16,14 @@ namespace ApiCeuDeGraos.Controllers
             _context = context;
         }
 
+        // Endpoint para obter todos os produtos
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Produto>>> GetProdutos()
         {
             return await _context.Produtos.ToListAsync();
         }
 
+        // Endpoint para adicionar um novo produto
         [HttpPost]
         public async Task<ActionResult<Produto>> AdicionarProduto(Produto produto)
         {
@@ -30,6 +32,7 @@ namespace ApiCeuDeGraos.Controllers
             return CreatedAtAction(nameof(AdicionarProduto), new { id = produto.ProdutoID }, produto);
         }
     }
+
 
 
 }

@@ -16,12 +16,14 @@ namespace ApiCeuDeGraos.Controllers
             _context = context;
         }
 
+        // Endpoint para obter todos os pedidos
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Pedido>>> GetPedidos()
         {
             return await _context.Pedidos.Include(p => p.Usuario).Include(p => p.StatusPedido).ToListAsync();
         }
 
+        // Endpoint para criar um novo pedido
         [HttpPost]
         public async Task<ActionResult<Pedido>> CriarPedido(Pedido pedido)
         {
@@ -30,5 +32,6 @@ namespace ApiCeuDeGraos.Controllers
             return CreatedAtAction(nameof(CriarPedido), new { id = pedido.PedidoID }, pedido);
         }
     }
+
 
 }

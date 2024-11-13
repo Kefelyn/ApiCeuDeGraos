@@ -17,12 +17,14 @@ namespace ApiCeuDeGraos.Controllers
             _context = context;
         }
 
+        // Endpoint para obter todos os usuários
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Usuario>>> GetUsuarios()
         {
             return await _context.Usuarios.ToListAsync();
         }
 
+        // Endpoint para cadastrar um novo usuário
         [HttpPost("cadastrar")]
         public async Task<ActionResult<Usuario>> CadastrarUsuario(Usuario usuario)
         {

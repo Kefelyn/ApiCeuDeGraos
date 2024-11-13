@@ -16,6 +16,7 @@ namespace ApiCeuDeGraos.Controllers
             _context = context;
         }
 
+        // Endpoint para obter todos os itens de pedidos
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ItemPedido>>> GetItensPedidos()
         {
